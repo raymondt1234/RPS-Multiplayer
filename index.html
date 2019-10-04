@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,18 +10,26 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="./assets/javascript/RPS.js"></script>
 </head>
+
 <body>
     <div>
         <h2>Player 1</h2>
-        <button class="active-p1-Btn" id="p1-rock" value="rock">Rock</button>
-        <button class="actice-p1-Btn" id="p1-paper" value="paper">Paper</button>
-        <button class="active-p1-Btn" id="p1-scissors" value="scissors">Scissors</button>
+        <div data-status="active" id="player1">
+            <button class="p1-Btn" id="p1-rock" value="rock">Rock</button>
+            <button class="p1-Btn" id="p1-paper" value="paper">Paper</button>
+            <button class="p1-Btn" id="p1-scissors" value="scissors">Scissors</button>
+        </div>
     </div>
     <div>
         <h2>Player 2</h2>
-        <button class="active-p2-Btn" id="p2-rock" value="rock">Rock</button>
-        <button class="active-p2-Btn" id="p2-paper" value="paper">Paper</button>
-        <button class="active-p2-Btn" id="p2-scissors" value="scissors">Scissors</button>
+        <div data-status="active" id="player2">
+            <button class="p2-Btn" id="p2-rock" value="rock">Rock</button>
+            <button class="p2-Btn" id="p2-paper" value="paper">Paper</button>
+            <button class="p2-Btn" id="p2-scissors" value="scissors">Scissors</button>
+        </div>
     </div>
+
+    <h2 id="winner"></h2>
 </body>
+
 </html>

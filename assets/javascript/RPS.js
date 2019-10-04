@@ -40,23 +40,37 @@ function testFindWinner() {
 
 }
 
+function postWinner() {
+    if (player1[1] !== "" && player2[1] !== "") {
+        $("#winner").html(findWinner(player1, player2));
+    }
+}
+
 testFindWinner();
 
-$(document).ready( function(){
-    
-    $(".active-p1-Btn").on("click", function(){
-        $(".active-p1-Btn").attr("class", "inactive-p1-Btn");
-        player1[1] = $(this).attr("value");
-        
-        console.log();
-        console.log(`Player 1 picked ${player1[1]}`);
+$(document).ready(function () {
+
+    $(".p1-Btn").on("click", function () {
+        let status = $("#player1").attr("data-status");
+        if (status === "active") {
+            player1[1] = $(this).attr("value");
+            $("#player1").attr("data-status", "inactive");
+
+            console.log();
+            console.log(`Player 1 picked ${player1[1]}`);
+        }
+        postWinner();
     });
 
-    $(".active-p2-Btn").on("click", function(){
-        $(".active-p2-Btn").attr("class", "inactive-p2-Btn");
-        player2[1] = $(this).attr("value");
-        
-        console.log();
-        console.log(`Player 2 picked ${player2[1]}`);
+    $(".p2-Btn").on("click", function () {
+        let status = $("#player2").attr("data-status");
+        if (status === "active") {
+            player1[1] = $(this).attr("value");
+            $("#player2").attr("data-status", "inactive");
+
+            console.log();
+            console.log(`Player 2 picked ${player1[1]}`);
+        }
+        postWinner();
     });
 });

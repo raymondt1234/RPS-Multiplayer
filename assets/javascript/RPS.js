@@ -34,15 +34,24 @@ function testFindWinner() {
     }
 
     console.log("end of Test...");
+    console.log(" ");
+    
 
+    // reset players
     player1 = ["Player 1", ""];
     player2 = ["Player 2", ""];
 
 }
 
 function postWinner() {
-    if (player1[1] !== "" && player2[1] !== "") {
-        $("#winner").html(findWinner(player1, player2));
+    if ((player1[1] !== "") && (player2[1] !== "")) {
+        let outcome = findWinner(player1, player2);
+        if (outcome !== "draw") {
+            outcome = "The winner is " + outcome;
+        } else {
+           outcome = "The game is a " + outcome;
+        }
+        $("#winner").html(outcome);
     }
 }
 
@@ -58,19 +67,20 @@ $(document).ready(function () {
 
             console.log();
             console.log(`Player 1 picked ${player1[1]}`);
+            postWinner();
         }
-        postWinner();
+        
     });
 
     $(".p2-Btn").on("click", function () {
         let status = $("#player2").attr("data-status");
         if (status === "active") {
-            player1[1] = $(this).attr("value");
+            player2[1] = $(this).attr("value");
             $("#player2").attr("data-status", "inactive");
 
             console.log();
-            console.log(`Player 2 picked ${player1[1]}`);
+            console.log(`Player 2 picked ${player2[1]}`);
+            postWinner();
         }
-        postWinner();
     });
 });

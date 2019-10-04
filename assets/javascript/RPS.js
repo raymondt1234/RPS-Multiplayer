@@ -12,7 +12,7 @@ function findWinner(player1, player2) {
     } else if (result === 1 || result === -2) {
         return player2[0];
     } else {
-        return "Draw"
+        return "draw"
     }
 }
 
@@ -27,7 +27,7 @@ function testFindWinner() {
 
     let winner = findWinner(player1, player2);
 
-    if (winner === "Draw") {
+    if (winner === "draw") {
         console.log(winner);
     } else {
         console.log(`${winner} is the winner!`);
@@ -47,9 +47,9 @@ function postWinner() {
     if ((player1[1] !== "") && (player2[1] !== "")) {
         let outcome = findWinner(player1, player2);
         if (outcome !== "draw") {
-            outcome = "The winner is " + outcome;
+            outcome = `The winner is ${outcome}`;
         } else {
-           outcome = "The game is a " + outcome;
+           outcome = "The game is a draw...";
         }
         $("#winner").html(outcome);
     }
